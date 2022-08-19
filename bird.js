@@ -1,10 +1,15 @@
+const plane = new Image()
+plane.src = "plane.png"
+
 class Bird {
     constructor() {
         this.x = 150
         this.y = 200
         this.vy = 0
-        this.width = 20
-        this.height = 20
+        this.originalWidth = 430
+        this.originalHeight = 276
+        this.width = this.originalWidth/10
+        this.height = this.originalHeight/10
         this.weight = 1
     }
 
@@ -30,8 +35,9 @@ class Bird {
     }
 
     draw() {
-        ctx.fillStyle = 'red'
-        ctx.fillRect(this.x, this.y, this.width, this.height)
+        ctx.fillStyle = 'blue'
+        // ctx.fillRect(this.x, this.y, this.width, this.height)
+        ctx.drawImage(plane, 0, 0, this.originalWidth, this.originalHeight, this.x - 20, this.y -20, this.width * 1.6, this.height * 1.6)
     }
 
     flap() {
